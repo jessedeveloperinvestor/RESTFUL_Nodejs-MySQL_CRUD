@@ -26,7 +26,7 @@ router.get('/read',(req,res,next)=>{
 	});
 });
 
-router.patch('update/:id',(req,res,next)=>{
+router.put('/update/:id',(req,res,next)=>{
 	const id = req.params.id;
 	let product = req.body;
 	var query = "update product set name=?,description=?,price=? where id=?";
@@ -43,13 +43,14 @@ router.patch('update/:id',(req,res,next)=>{
 	})
 })
 
-router.delete('delete/:id',(req,res,next)=>{
+router.delete('/delete/:id',(req,res,next)=>{
 	const id = req.params.id;
-	var query = "delete from product where id=?";
-	connection.query(query[id],(err,results)=>{
+	let product = req.body;
+	var query = "update product set name=0,description=0,price=0 where id=?";
+	connection.query(query,[id],(err,results)=>{
 		if(!err){
 			if(results.affectedRows == 0){
-				return res.status(404).json({message:"Product id not found"});
+				return res.status(400).json({message:"Product id not found"});
 			}
 			return res.status(200).json({message:"Product deleted successfully"});
 		}
