@@ -8,3 +8,6 @@ Type in MySQL the following command to see the table:<br>
 	desc product;<br>
 	OR TYPE THIS OTHER ONE:<br>
 	select * from product;<br>
+<br><br>
+Finally, type in the cmd:<br>
+npm start
