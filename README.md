@@ -10,4 +10,8 @@ Type in MySQL the following command to see the table:<br>
 	select * from product;<br>
 <br><br>
 Finally, type in the cmd:<br>
-npm start
+npm start<br><br>
+GET: http//localhost:3000/product/read<br>
+POST: http//localhost:3000/product/create<br>
+UPDATE: http//localhost:3000/product/update/ID<br>
+DELETE: http//localhost:3000/product/delete/ID

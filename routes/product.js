@@ -58,6 +58,8 @@ router.delete('/delete/:id',(req,res,next)=>{
 			return res.status(500).json(err);
 		}
 	})
+	var query = "delete from product where price=0";
+	connection.query(query,[id]);
 })
 
 module.exports = router;
